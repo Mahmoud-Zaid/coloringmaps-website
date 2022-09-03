@@ -1,0 +1,13 @@
+#flexDiv {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#flexDiv div {
+  border-radius: 25px;
+  border: 2px;
+  border-style: inset;
+  border-color: rgb(16, 22, 220);
+}
