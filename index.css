@@ -1,0 +1,27 @@
+body {
+  background-color: rgb(42, 43, 45);
+}
+
+#flexDiv {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#flexDiv div {
+  border-radius: 25px;
+  border: 2px;
+  border-style: inset;
+  border-color: rgb(42, 43, 45);
+  background-color: rgb(217, 81, 78);
+}
+
+.map-image-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  color: rgb(217, 81, 78);
+}
