@@ -11,7 +11,7 @@ body {
 }
 #flexDiv div {
   border-radius: 25px;
-  border: 2px;
+  border: 1px;
   border-style: inset;
   border-color: rgb(42, 43, 45);
   background-color: rgb(217, 81, 78);
