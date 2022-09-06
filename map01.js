@@ -1,6 +1,6 @@
 let mainTable = document.querySelector('#colorsTable')
 mainTable.addEventListener('click', getColor)
-let theParent = document.querySelector('svg')
+let theParent = document.querySelector('#theMap')
 theParent.addEventListener('click', fillCountry, false)
 let chosenColor = { color: '', default: '#D0D0D0' }
 
