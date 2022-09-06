@@ -15,7 +15,6 @@ function getColor(e) {
       colorsBoxe.classList.remove('selectedColorBox')
     }
     e.target.classList.add('selectedColorBox')
-    document.getElementById('currentColor').innerHTML = e.target.dataset.color
   }
 }
 
@@ -113,3 +112,47 @@ function getMouseDirection(e) {
     image.style.transform = `translate(${pos.x}px,${pos.y}px) scale(${scale},${scale})`
   }
 }
+
+//----------------------------------------------------
+
+var text = document.getElementById('theMap')
+var svg = null
+var width
+var height
+document.getElementById('button01').addEventListener('click', function () {
+  var div = document.getElementById('d')
+  div.innerHTML = text
+  svg = text
+  width = svg.getBoundingClientRect().width
+  height = svg.getBoundingClientRect().height
+})
+document.getElementById('button02').addEventListener('click', function () {
+  var canvas = document.getElementById('c')
+  svg.setAttribute('width', width)
+  svg.setAttribute('height', height)
+  canvas.width = width
+  canvas.height = height
+  var data = new XMLSerializer().serializeToString(svg)
+  var win = window.URL || window.webkitURL || window
+  var img = new Image()
+  var blob = new Blob([data], { type: 'image/svg+xml' })
+  var url = win.createObjectURL(blob)
+  img.onload = function () {
+    canvas.getContext('2d').drawImage(img, 0, 0)
+    win.revokeObjectURL(url)
+    var uri = canvas.toDataURL('image/png').replace('image/png', 'octet/stream')
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.style = 'display: none'
+    a.href = uri
+    a.download =
+      (svg.id ||
+        svg.svg.getAttribute('name') ||
+        svg.getAttribute('aria-label') ||
+        'untitled') + '.png'
+    a.click()
+    window.URL.revokeObjectURL(uri)
+    document.body.removeChild(a)
+  }
+  img.src = url
+})
