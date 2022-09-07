@@ -119,14 +119,14 @@ var text = document.getElementById('theMap')
 var svg = null
 var width
 var height
-document.getElementById('button01').addEventListener('click', function () {
+
+document.getElementById('button').addEventListener('click', function () {
   var div = document.getElementById('d')
   div.innerHTML = text
   svg = text
   width = svg.getBoundingClientRect().width
   height = svg.getBoundingClientRect().height
-})
-document.getElementById('button02').addEventListener('click', function () {
+  //-----------------------------------------
   var canvas = document.getElementById('c')
   svg.setAttribute('width', width)
   svg.setAttribute('height', height)
