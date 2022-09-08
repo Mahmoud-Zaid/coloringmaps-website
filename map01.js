@@ -1,7 +1,7 @@
 let mainTable = document.querySelector('#colorsTable')
 mainTable.addEventListener('click', getColor)
-let theParent = document.querySelector('#theMap')
-theParent.addEventListener('click', fillCountry, false)
+let mapSVG = document.querySelector('#theMap')
+mapSVG.addEventListener('click', fillCountry, false)
 let chosenColor = { color: '', default: '#D0D0D0' }
 
 //----------------------------------------------------
@@ -115,33 +115,30 @@ function getMouseDirection(e) {
 
 //----------------------------------------------------
 
-var text = document.getElementById('theMap')
-var svg = null
-var width
-var height
+let svg = null
+let width
+let height
 
 document.getElementById('button').addEventListener('click', function () {
-  var div = document.getElementById('d')
-  div.innerHTML = text
-  svg = text
+  svg = mapSVG
   width = svg.getBoundingClientRect().width
   height = svg.getBoundingClientRect().height
   //-----------------------------------------
-  var canvas = document.getElementById('c')
+  let canvas = document.getElementById('c')
   svg.setAttribute('width', width)
   svg.setAttribute('height', height)
   canvas.width = width
   canvas.height = height
-  var data = new XMLSerializer().serializeToString(svg)
-  var win = window.URL || window.webkitURL || window
-  var img = new Image()
-  var blob = new Blob([data], { type: 'image/svg+xml' })
-  var url = win.createObjectURL(blob)
+  let data = new XMLSerializer().serializeToString(svg)
+  let win = window.URL || window.webkitURL || window
+  let img = new Image()
+  let blob = new Blob([data], { type: 'image/svg+xml' })
+  let url = win.createObjectURL(blob)
   img.onload = function () {
     canvas.getContext('2d').drawImage(img, 0, 0)
     win.revokeObjectURL(url)
-    var uri = canvas.toDataURL('image/png').replace('image/png', 'octet/stream')
-    var a = document.createElement('a')
+    let uri = canvas.toDataURL('image/png').replace('image/png', 'octet/stream')
+    let a = document.createElement('a')
     document.body.appendChild(a)
     a.style = 'display: none'
     a.href = uri
