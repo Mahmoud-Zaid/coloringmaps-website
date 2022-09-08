@@ -8,7 +8,7 @@ let chosenColor = { color: '', default: '#D0D0D0' }
 //pick up a color by clicking
 
 function getColor(e) {
-  if (e.target.matches('span')) {
+  if (e.target.matches('.picColor')) {
     chosenColor.color = e.target.dataset.color
     let colorsBoxes = document.querySelectorAll('.selectedColorBox')
     for (const colorsBoxe of colorsBoxes) {
