@@ -1,12 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+
 #flexContainer {
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 #divContainer {
+  height: 100vh;
   width: 100%;
-  height: 100%;
   overflow: hidden;
   outline: 2px solid rgb(0, 8, 255);
 }
@@ -35,4 +38,10 @@
   border: 2px;
   border-style: solid;
   border-color: black;
+}
+
+#theMap path,
+.picColor,
+button {
+  cursor: pointer;
 }
